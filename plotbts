@@ -1,0 +1,6 @@
+#!/bin/bash
+grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv} kernel ~/plots/*.svg | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv} user | sed 's/.*= //g' > ~/lfs-scripts/boots.dat
+	sed -e "s|Linux From Scratch|$(cat /etc/os-release | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv} "PRETTY_NAME" | cut -d '"' -f 2)|g" -e "s|boot time distribution|boot time distribution as of $(uptime -s).|g" ~/lfs-scripts/hist.gnuplot > ~/lfs-scripts/hist.tmp.gnuplot
+	gnuplot ~/lfs-scripts/hist.tmp.gnuplot
+	rm ~/lfs-scripts/hist.tmp.gnuplot
+	eog ~/lfs-scripts/boots_hist.png
