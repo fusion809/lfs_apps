@@ -3,3 +3,4 @@ Name=Julia
 Exec=gnome-terminal -- /home/fusion809/.juliaup/bin/julia
 Type=Application
 Icon=julia
+Categories=Education;Science;Mathematics;Math;

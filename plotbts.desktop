@@ -3,3 +3,4 @@ Name=Plot boot times
 Exec=/home/fusion809/.local/bin/plotbts
 Type=Application
 Icon=plot2d
+Categories=Education;Math;Science;
