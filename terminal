@@ -1,0 +1,6 @@
+#!/bin/bash
+if [[ $XDG_CURRENT_DESKTOP == "KDE" ]]; then
+	konsole
+elif [[ $XDG_CURRENT_DESKTOP == "GNOME" ]]; then
+	gnome-terminal
+fi
