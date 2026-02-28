@@ -1,4 +1,65 @@
 #!/bin/bash
+R --vanilla -q <<'EOF'
+
+# Define directory explicitly
+plot_dir <- path.expand("~/plots")
+
+# Get full file paths
+files <- list.files(plot_dir, pattern="\\.svg$", full.names=TRUE)
+
+# Function to extract boot time
+get_time <- function(f) {
+  lines <- readLines(f, warn = FALSE)
+
+  line <- lines[grepl("Startup finished in", lines)]
+
+  if (length(line) == 0) return(NA_real_)
+
+  # Extract the final total time after '='
+  val <- sub(".*= ([0-9.]+)s.*", "\\1", line)
+
+  as.numeric(val)
+}
+times <- sapply(files, get_time)
+
+# Remove NAs
+valid <- !is.na(times)
+files <- files[valid]
+times <- times[valid]
+
+# Statistics
+median_x <- median(times)
+iqr_x <- IQR(times)
+
+fac <- 2.5
+lower <- median_x - fac*iqr_x
+upper <- median_x + fac*iqr_x
+
+cat("n =", length(times), "\n")
+cat("median =", median_x, "\n")
+cat("IQR =", iqr_x, "\n")
+cat("lower bound =", lower, "\n")
+cat("upper bound =", upper, "\n")
+
+# Identify outliers
+outlier_idx <- which(times < lower | times > upper)
+outlier_files <- files[outlier_idx]
+
+cat("\nOutlier files:\n")
+print(outlier_files)
+
+# Create outliers directory inside ~/plots
+out_dir <- file.path(plot_dir, "outliers")
+dir.create(out_dir, showWarnings = FALSE)
+
+# Move files
+file.rename(outlier_files,
+            file.path(out_dir, basename(outlier_files)))
+
+cat("\nMoved", length(outlier_files), "files to", out_dir, "\n")
+
+EOF
+
 grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv} kernel ~/plots/*.svg | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv} user | sed 's/.*= //g' > ~/lfs-scripts/boots.dat
 sed -e "s|Linux From Scratch|$(cat /etc/os-release | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv} "PRETTY_NAME" | cut -d '"' -f 2)|g" -e "s|boot time distribution|boot time distribution as of $(uptime -s).|g" ~/lfs-scripts/hist.gnuplot > ~/lfs-scripts/hist.tmp.gnuplot
 gnuplot ~/lfs-scripts/hist.tmp.gnuplot
