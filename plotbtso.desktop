@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Plot boot times (new)
+Exec=/home/fusion809/.local/bin/plotbtso
+Type=Application
+Icon=plot2d
+Categories=Education;Math;Science;
