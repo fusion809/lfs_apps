@@ -52,11 +52,37 @@ print(outlier_files)
 out_dir <- file.path(plot_dir, "outliers")
 dir.create(out_dir, showWarnings = FALSE)
 
-# Move files
-file.rename(outlier_files,
-            file.path(out_dir, basename(outlier_files)))
+post_virtiofs_dir <- file.path(out_dir, "post-virtiofs")
+dir.create(post_virtiofs_dir, showWarnings = FALSE)
 
-cat("\nMoved", length(outlier_files), "files to", out_dir, "\n")
+cutoff_date <- as.POSIXct("2026-03-01 18:00:00")
+mtimes <- file.info(files)$mtime
+
+# Identify outliers
+outlier_idx <- which(times < lower | times > upper)
+
+# Identify post-virtiofs normal files
+post_virtiofs_idx <- which(times >= lower & times <= upper & mtimes > cutoff_date)
+
+outlier_files <- files[outlier_idx]
+post_virtiofs_files <- files[post_virtiofs_idx]
+
+cat("\nOutlier files:\n")
+print(outlier_files)
+
+# Move outliers
+if (length(outlier_files) > 0) {
+  file.rename(outlier_files,
+              file.path(out_dir, basename(outlier_files)))
+  cat("\nMoved", length(outlier_files), "outlier files to", out_dir, "\n")
+}
+
+# Move post-virtiofs normal files
+if (length(post_virtiofs_files) > 0) {
+  file.rename(post_virtiofs_files,
+              file.path(post_virtiofs_dir, basename(post_virtiofs_files)))
+  cat("Moved", length(post_virtiofs_files), "normal post-virtiofs files to", post_virtiofs_dir, "\n")
+}
 
 EOF
 
