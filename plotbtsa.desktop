@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Plot all boot times
+Exec=/home/fusion809/.local/bin/plotbtsa
+Type=Application
+Icon=plot2d
+Categories=Education;Math;Science;
