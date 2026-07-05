@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/fusion809/bin/cycle-wallpaper.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Icon=dynamic-wallpaper
+Name=Wallpaper Cycler (Win+W)
+Comment=Cycles GNOME wallpaper on login
