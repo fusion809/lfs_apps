@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/fusion809/lfs_apps/cycle-wallpaper-previous.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Icon=wallpaper
+Name=Previous wallpaper (Win+Z)
+Comment=Cycles GNOME wallpaper on login

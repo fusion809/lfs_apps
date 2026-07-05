@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/fusion809/lfs_apps/cycle-wallpaper-shuffle.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Icon=daily-wallpaper
+Name=Shuffle wallpapers (Win+S)
+Comment=Cycles GNOME wallpaper on login
