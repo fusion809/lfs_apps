@@ -1,6 +1,7 @@
 #!/bin/bash
 WALLPAPER_DIR="$HOME/wallpapers"
 STATE_FILE="$HOME/.local/state/wallpaper_index"
+NXT_STATE_FILE="$HOME/.local/state/wallpaper_next_index"
 ERROR_LOG="$HOME/.local/state/wallpaper_shuffle.log"
 export PATH=$PATH:/opt/qt6/bin
 mkdir -p "$(dirname "$STATE_FILE")"
@@ -15,7 +16,7 @@ if [ "$NUM_WALLPAPERS" -eq 0 ]; then
 fi
 
 if [ -f "$STATE_FILE" ]; then
-    INDEX=$(cat "$STATE_FILE")
+    INDEX=$(cat "$NXT_STATE_FILE")
     if ! [[ "$INDEX" =~ ^[0-9]+$ ]] || [ "$INDEX" -ge "$NUM_WALLPAPERS" ]; then
         INDEX=0
     fi
@@ -41,4 +42,5 @@ qdbus org.kde.plasmashell /PlasmaShell \
             }"
 fi
 NEXT_INDEX=$(R -q -e "sample.int($NUM_WALLPAPERS+1, 1)-1" | grep "^\[1\]" | cut -d ' ' -f 2)
-echo "$NEXT_INDEX" > "$STATE_FILE"
+echo "$NEXT_INDEX" > "$NXT_STATE_FILE"
+echo "$INDEX" > "$STATE_FILE"
