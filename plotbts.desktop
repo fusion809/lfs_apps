@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Plot boot times
-Exec=/home/fusion809/.local/bin/plotbts
+Exec=/home/fusion809/lfs_apps/plotbts.sh
 Type=Application
 Icon=plot2d
 Categories=Education;Math;Science;
