@@ -60,15 +60,15 @@ cat("\nMoved", length(outlier_files), "files to", out_dir, "\n")
 
 EOF
 
-grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv} kernel ~/plots/*.svg ~/plots/*/*.svg ~/plots/*/*/*.svg | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv} user | sed 's/.*= //g' > ~/lfs-scripts/bootsa.dat
-sed -e "s|Linux From Scratch|$(cat /etc/os-release | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv} "PRETTY_NAME" | cut -d '"' -f 2)|g" -e "s|boot time distribution|boot time distribution as of $(uptime -s).|g" ~/lfs-scripts/hista.gnuplot > ~/lfs-scripts/hist.tmp.gnuplot
-sed -i -e "s|boots.dat|bootsa.dat|g" ~/lfs-scripts/hist.tmp.gnuplot
-gnuplot ~/lfs-scripts/hist.tmp.gnuplot
-rm ~/lfs-scripts/hist.tmp.gnuplot
+grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv} kernel ~/plots/*.svg ~/plots/*/*.svg ~/plots/*/*/*.svg | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv} user | sed 's/.*= //g' > ~/lfs_gnuplot/bootsa.dat
+sed -e "s|Linux From Scratch|$(cat /etc/os-release | grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,.venv,venv} "PRETTY_NAME" | cut -d '"' -f 2)|g" -e "s|boot time distribution|boot time distribution as of $(uptime -s).|g" ~/lfs_gnuplot/hista.gnuplot > ~/lfs_gnuplot/hist.tmp.gnuplot
+sed -i -e "s|boots.dat|bootsa.dat|g" ~/lfs_gnuplot/hist.tmp.gnuplot
+gnuplot ~/lfs_gnuplot/hist.tmp.gnuplot
+rm ~/lfs_gnuplot/hist.tmp.gnuplot
 if [[ $XDG_CURRENT_DESKTOP == "KDE" ]]; then
 	IMAGE_EDITOR=gwenview
 elif [[ $XDG_CURRENT_DESKTOP == "GNOME" ]]; then
 	IMAGE_EDITOR=eog
 fi
 
-$IMAGE_EDITOR ~/lfs-scripts/boots_hist.png
+$IMAGE_EDITOR ~/lfs_gnuplot/boots_hist.png
