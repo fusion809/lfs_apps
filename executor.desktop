@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Executor settings
+Icon=gksu-root-terminal-symbolic
+Type=Application
+Exec=gnome-extensions prefs executor@raujonas.github.io
+DBusActivatable=true
+Categories=GNOME;GTK;Utility;
+OnlyShowIn=GNOME;
