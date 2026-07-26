@@ -6,3 +6,5 @@ Exec=gnome-extensions prefs executor@raujonas.github.io
 DBusActivatable=true
 Categories=GNOME;GTK;Utility;
 OnlyShowIn=GNOME;
+StartupWMClass=Executor
+StartupNotify=true

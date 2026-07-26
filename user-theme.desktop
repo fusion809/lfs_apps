@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=User theme settings
+Exec=gnome-extensions prefs user-theme@gnome-shell-extensions.gcampax.github.com
+Type=Application
+Icon=preferences-theme
+DBusActivatable=true
+Categories=GNOME;GTK;Utility;
+OnlyShowIn=GNOME;
+StartupWMClass=UserTheme;
+StartupNotify=true

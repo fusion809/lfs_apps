@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Dash to dock settings
+Exec=gnome-extensions prefs dash-to-dock@micxgx.gmail.com
+Type=Application
+Icon=dock
+DBusActivatable=true
+Categories=GNOME;GTK;Utility;
+OnlyShowIn=GNOME;
+StartupWMClass=DashToDock
+StartupNotify=true
