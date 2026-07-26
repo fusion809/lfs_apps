@@ -1,10 +1,10 @@
 [Desktop Entry]
-Name=Dash to dock settings
-Exec=gnome-extensions prefs dash-to-dock@micxgx.gmail.com
+Name=Kiwimenu settings
+Exec=gnome-extensions prefs kiwimenu@kemma
 Type=Application
-Icon=dock
+Icon=preferences-theme
 DBusActivatable=true
 Categories=GNOME;GTK;Utility;
 OnlyShowIn=GNOME;
-StartupWMClass=DashToDock
+StartupWMClass=KiwiMenu;
 StartupNotify=true

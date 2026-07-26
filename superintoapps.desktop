@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Super into apps settings
+Exec=gnome-extensions prefs super-into-apps@thunder.studio
+Type=Application
+Icon=apps
+DBusActivatable=true
+Categories=GNOME;GTK;Utility;
+OnlyShowIn=GNOME;
+StartupWMClass=SuperIntoApps
+StartupNotify=true
