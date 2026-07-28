@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/fusion809/bin/specify-wallpaper.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Icon=dynamic-wallpaper
+Name=Specify Wallpaper by number (Win+N)

@@ -2,7 +2,7 @@
 Name=Kiwimenu settings
 Exec=gnome-extensions prefs kiwimenu@kemma
 Type=Application
-Icon=preferences-theme
+Icon=gnome-menu
 DBusActivatable=true
 Categories=GNOME;GTK;Utility;
 OnlyShowIn=GNOME;
