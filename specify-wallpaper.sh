@@ -32,14 +32,7 @@ if [[ -n "$no" ]]; then
 else
     INDEX=1
 fi
-if (( INDEX < NUM_WALLPAPERS )); then
-    INDEX=$((INDEX))
-else
-    INDEX=1
-fi
-
-
-WALLPAPER_PATH="${WALLPAPERS[$((INDEX))]}"
+WALLPAPER_PATH="${WALLPAPERS[$((INDEX - 1))]}"
 URI="file://$WALLPAPER_PATH"
 
 echo "WALLPAPER_PATH=$WALLPAPER_PATH" >> "$ERROR_LOG"
