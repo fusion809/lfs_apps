@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Kiwimenu settings
+Exec=gnome-extensions prefs arcmenu@arcmenu.com
+Type=Application
+Icon=gnome-menu
+DBusActivatable=true
+Categories=GNOME;GTK;Utility;
+OnlyShowIn=GNOME;
+StartupWMClass=KiwiMenu;
+StartupNotify=true
