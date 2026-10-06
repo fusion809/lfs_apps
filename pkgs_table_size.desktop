@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Size table
+Comment=Package table sorted, in descending order, by installed package size.
+Icon=package
+Exec=gnome-terminal -- /home/fusion809/lfs_apps/pkgs_table_display size
+Type=Application
+Categories=Development;Utility;

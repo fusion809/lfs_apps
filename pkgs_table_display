@@ -1,0 +1,11 @@
+#!/bin/bash
+if [[ -z $1 ]]; then
+	type="size"
+elif [[ "$1" == "time" ]]; then
+	type=bd
+elif [[ -f $HOME/logs/pkgs_by_${1}.log ]]; then
+	type="$1"
+else
+	echo "Invalid argument; accepted arguments: alpha, bd, size and time."
+fi
+less $HOME/logs/pkgs_by_$type.log
