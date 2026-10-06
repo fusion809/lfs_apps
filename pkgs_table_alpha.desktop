@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Alpha pkgs
 Comment=Produce a table of custom packages on the system sorted by name alphabetically in ascending order.
-Icon=package
+Icon=org.gnome.Packages
 Exec=gnome-terminal -- /home/fusion809/lfs_apps/pkgs_table_display alpha
 Type=Application
 Categories=Development;Utility;

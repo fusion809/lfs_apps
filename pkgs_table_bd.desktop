@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Duration table
 Comment=Package table sorted in descending order by build duration.
-Icon=package
+Icon=time
 Exec=gnome-terminal -- /home/fusion809/lfs_apps/pkgs_table_display bd
 Type=Application
 Categories=Development;Utility;
