@@ -7,3 +7,4 @@ X-GNOME-Autostart-enabled=true
 Icon=dynamic-wallpaper
 Name=Wallpaper Cycler (Win+W)
 Comment=Cycles GNOME wallpaper on login
+Categories=Utility;

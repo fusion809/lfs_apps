@@ -7,3 +7,4 @@ X-GNOME-Autostart-enabled=true
 Icon=wallpaper
 Name=Previous wallpaper (Win+Z)
 Comment=Cycles GNOME wallpaper on login
+Categories=Utility;
