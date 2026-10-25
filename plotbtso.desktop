@@ -3,4 +3,4 @@ Name=Plot boot times (new)
 Exec=/home/fusion809/lfs_apps/plotbtso.sh
 Type=Application
 Icon=plot2d
-Categories=Education;Math;Science;
+Categories=Utility

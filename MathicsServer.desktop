@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Mathics Server
+Comment=Launch the Mathics3 web server
+Exec=/home/fusion809/.local/bin/mathicsnotebook
+TryExec=/home/fusion809/.local/bin/mathicsnotebook
+Type=Application
+#Icon=/home/fusion809/.local/share/pixmaps/Mathics.png
+Icon=Mathics
+Terminal=false
+Categories=Education;Science;Math;
